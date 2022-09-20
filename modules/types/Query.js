@@ -54,6 +54,10 @@ class Query {
         } else {
             args.push("--yes-playlist")
         }
+        
+        args.push("--force-overwrites");
+        args.push("--encoding");
+        args.push("utf-8");
 
         args.push(url) //Url must always be added as the final argument
 

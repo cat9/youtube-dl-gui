@@ -154,7 +154,12 @@ class QueryManager {
                 }
             }
         }
-        downloadVideo.audioQuality = (downloadVideo.audioQuality != null) ? downloadVideo.audioQuality : "best";
+        if(downloadVideo.audioOnly){
+            downloadVideo.audioQuality = args.format;
+        }else{
+            downloadVideo.audioQuality = (downloadVideo.audioQuality != null) ? downloadVideo.audioQuality : "best";
+        }
+        
         let progressBar = new ProgressBar(this, downloadVideo);
         downloadVideo.setQuery(new DownloadQuery(downloadVideo.url, downloadVideo, this.environment, progressBar));
         downloadVideo.query.connect().then(() => {

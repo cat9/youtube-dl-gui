@@ -18,6 +18,7 @@ class Logger {
         } else {
             trimmedLine = line.replace(/[\n\r]/g, "");
         }
+        console.log('item['+identifier+"]:"+trimmedLine);
         if(identifier in this.logs) {
             this.logs[identifier].push(trimmedLine);
         } else {

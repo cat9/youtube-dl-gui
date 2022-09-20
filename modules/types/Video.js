@@ -32,6 +32,16 @@ class Video {
         } else if(liveData.includes("[ffmpeg] Adding metadata to '")) {
             const noPrefix = liveData.replace("[ffmpeg] Adding metadata to '", "");
             this.filename = path.basename(noPrefix.trim().slice(0, -1));
+        }else if(liveData.includes("[ExtractAudio] Destination: ")) {
+            const replaced = liveData.replace("[ExtractAudio] Destination: ", "");
+            this.filename = path.basename(replaced);
+        }else if(liveData.includes("[ExtractAudio] Not converting audio ")) {
+            const testData = liveData.replace("[ExtractAudio] Not converting audio ", "");
+            const index=testData.indexOf("; file is already in target format ");
+            if(index!=-1){
+                const replaced=testData.substr(0,index);
+                this.filename = path.basename(replaced);
+            }
         }
     }
 

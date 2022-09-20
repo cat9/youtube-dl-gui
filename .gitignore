@@ -1,1 +1,10 @@
 /.env
+node_modules
+dist
+taskList
+userSettings
+binaries/ffmpeg.exe
+binaries/ffprobe.exe
+binaries/ffmpegVersion
+binaries/yt-dlp.exe
+binaries/ytdlVersion
